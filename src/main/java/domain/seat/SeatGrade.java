@@ -21,4 +21,8 @@ public enum SeatGrade {
 
     return B;
   }
+
+  public long getPrice() {
+    return price;
+  }
 }

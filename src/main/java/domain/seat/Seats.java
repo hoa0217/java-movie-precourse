@@ -23,4 +23,10 @@ public record Seats(
   public Seats() {
     this(initializeSeats());
   }
+
+  public long calculateSeatPrice() {
+    return seats.stream()
+        .mapToLong(Seat::price)
+        .sum();
+  }
 }

@@ -25,4 +25,8 @@ public class Seat {
     }
     this.status = SeatStatus.RESERVED;
   }
+
+  public long price(){
+    return grade.getPrice();
+  }
 }
