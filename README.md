@@ -20,13 +20,20 @@
 
 ### 영화
 
-| 한글명   | 영문명                | 설명                                                               |
-|-------|--------------------|------------------------------------------------------------------|
-| 영화    | Movie              | 상영되는 콘텐츠                                                         |
-| 영화 이름 | Movie Name         | 영화가 갖는 이름                                                        |
-| 상영 기간 | Screening Period   | 영화가 상영 가능한 전체 기간 (ex: 2025-09-15 ~ 2025-10-14)                   |
-| 상영 길이 | Movie Runtime      | 영화의 총 재생 시간. (ex: 150분)                                          |
-| 상영 일정 | Screening Schedule | 영화가 상영되는 개별 일정. 상영관, 날짜, 시작 시각을 포함한다. (ex: 2D관 2025-09-15 19:00) |
+| 한글명   | 영문명              | 설명                                             |
+|-------|------------------|------------------------------------------------|
+| 영화    | Movie            | 상영되는 콘텐츠                                       |
+| 영화 이름 | Movie Name       | 영화가 갖는 이름                                      |
+| 상영 기간 | Screening Period | 영화가 상영 가능한 전체 기간 (ex: 2025-09-15 ~ 2025-10-14) |
+| 상영 길이 | Movie Runtime    | 영화의 총 재생 시간. (ex: 150분)                        |
+
+### 상영 일정
+
+| 한글명      | 영문명                  | 설명             |
+|----------|----------------------|----------------|
+| 상영 일정    | Screening Schedule   | 영화가 상영되는 개별 일정 |
+| 상영 날짜    | Screening Date       | 영화가 상영되는 날짜    |
+| 상영 시작 시간 | Screening Start Time | 영화 상영이 시작되는 시간 |
 
 ### 좌석
 
@@ -96,9 +103,14 @@
 
 #### 프로퍼티
 
-- `영화(Movie)`는 `영화 이름(Movie Name)`, `상영 기간(Screening Period)`, `상영 길이(Movie Runtime)`, `상영 일정(Screening Schedule)`을 갖는다.
-- `영화(Movie)`는 하나 이상의 `상영 일정(Screening Schedule)`을 갖는다.
-- `상영 일정(Screening Schedules)`은 `상영관(Theater)`, `상영 날짜(Screening Date)`, `시작 시각(Screening Start Time)`을 포함한다.
+- `영화(Movie)`는 `영화 이름(Movie Name)`, `상영 기간(Screening Period)`, `상영 길이(Movie Runtime)`을 갖는다.
+- `상영 길이(Movie Runtime)`는 분단위로 표현된다.
+
+### 상영 일정
+
+#### 프로퍼티
+
+- `상영 일정(Screening Schedules)`은 `상영관(Theater)`, `영화(Movie)`, `상영 날짜(Screening Date)`, `시작 시각(Screening Start Time)`을 포함한다.
 - `상영 일정(Screening Schedules)`은 아래 규칙으로 유효성 검증을 수행한다.
     - `상영 날짜(Screening Date)`는 `상영 기간(Screening Period)`에 포함되어야 한다.
     - `시작 시각(Screening Start Time)`은 `상영 길이(Movie Runtime)`를 더한 값이 `상영관 운영 시간(Theater Operating Hours)`에 포함되어야 한다.
@@ -109,13 +121,14 @@
 #### 프로퍼티
 
 - `좌석(Seat)`는 `좌석 번호(Seat Number)`, `좌석 등급(Seat Grade)`, `좌석 가격(Seat Price)`, `좌석 상태(Seat Status)`을 갖는다.
+- `좌석 번호(Seat Number)`는 행과 열을 갖는다.
+    - 행은 알파벳, 열은 숫자를 갖는다.
 - `좌석 등급(Seat Grade)`은 S,A,B로 나뉜다.
 - `좌석 가격(Seat Price)`은 `좌석 등급(Seat Grade)`에 따라 아래와 같이 정의된다.
     - S석은 18,000원
     - A석은 15,000원
     - B석은 12,000원
 - `좌석 상태(Seat Status)`는 `예약가능(Available)`과 `예약됨(Reserved)`상태가 있다.
-- `좌석(Seat)`은 하나의 `상영 일정(Screening Schedules)`을 갖는다.
 
 #### 행위
 
