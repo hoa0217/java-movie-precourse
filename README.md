@@ -1,29 +1,43 @@
 # java-movie-precourse
 
----
-
 ## 용어사전
+
+### 상영관
+
+| 한글명       | 영문명                     | 설명                                      |
+|-----------|-------------------------|-----------------------------------------|
+| 상영관       | Theater                 | 영화가 상영되는 공간                             |
+| 상영관 이름    | Theater Name            | 상영관을 식별하는 이름                            |
+| 상영관 운영 시간 | Theater Operating Hours | 상영관이 하루 동안 운영되는 시간대.                    |
+| 상영관 운영 유형 | Theater Operating Type  | 상영관이 운영 시간이 당일 종료 인지, 익일로 넘어가는지 구분하는 유형 |
+
+#### 상영관 운영 유형
+
+| 한글명   | 영문명                 | 설명                                                       |
+|-------|---------------------|----------------------------------------------------------|
+| 하루 운영 | Same-Day Operation  | 상영관 운영 시간이 자정을 넘지 않고 같은날 안에서 종료되는 경우 (ex: 07:00 ~ 23:00) |
+| 익일 운영 | Cross-Day Operation | 상영관 운영 시간이 자정을 넘어 다음날까지 이어지는 경우 (ex: 07:00 ~ 익일 01:00)   |
 
 ### 영화
 
-| 한글명       | 영문명                     | 설명                      |
-|-----------|-------------------------|-------------------------|
-| 영화        | Movie                   | 상영되는 콘텐츠                |
-| 영화 상영 기간  | Movie Screening Period  | 영화가 상영 가능한 전체 기간        |
-| 영화 상영 시간  | Movie Screening Time    | 영화가 시작되는 시각 (ex: 19:00) |
-| 영화 상영 길이  | Movie Runtime           | 영화의 총 재생 시간 (ex: 150분)  |
-| 상영관       | Theater                 | 영화가 상영되는 공간             |
-| 상영관 운영 시간 | Theater Operating Hours | 상영관이 운영되는 시간대           |
+| 한글명   | 영문명                | 설명                                                               |
+|-------|--------------------|------------------------------------------------------------------|
+| 영화    | Movie              | 상영되는 콘텐츠                                                         |
+| 영화 이름 | Movie Name         | 영화가 갖는 이름                                                        |
+| 상영 기간 | Screening Period   | 영화가 상영 가능한 전체 기간 (ex: 2025-09-15 ~ 2025-10-14)                   |
+| 상영 길이 | Movie Runtime      | 영화의 총 재생 시간. (ex: 150분)                                          |
+| 상영 일정 | Screening Schedule | 영화가 상영되는 개별 일정. 상영관, 날짜, 시작 시각을 포함한다. (ex: 2D관 2025-09-15 19:00) |
 
 ### 좌석
 
-| 한글명   | 영문명        | 설명                                                          |
-|-------|------------|-------------------------------------------------------------|
-| 좌석    | Seat       | 관객이 앉는 자리. 행은 알파벳 열은 숫자로 나타낸다. (ex: A1, C3, E4)             |
-| 좌석 등급 | Seat Grade | 좌석에 매겨지는 등급. (ex: S석, A석, B석)                               |
-| 좌석 가격 | Seat Price | 좌석 등급에 따라 매겨지는 가격. (ex: S석 18,000원, A석 15,000원, B석 12,000원) |
-| 예약가능  | Available  | 좌석이 비어있어 예약할 수 있는 상태                                        |
-| 예약됨   | Reserved   | 좌석이 이미 예약되어 더 이상 예약할 수 없는 상태                                |
+| 한글명   | 영문명         | 설명                                                          |
+|-------|-------------|-------------------------------------------------------------|
+| 좌석    | Seat        | 관객이 앉는 자리                                                   |
+| 좌석 번호 | Seat Number | 좌석을 구분하는 값. 행은 알파벳 열은 숫자로 나타낸다. (ex: A1, C3, E4)            |
+| 좌석 등급 | Seat Grade  | 좌석에 매겨지는 등급. (ex: S석, A석, B석)                               |
+| 좌석 가격 | Seat Price  | 좌석 등급에 따라 매겨지는 가격. (ex: S석 18,000원, A석 15,000원, B석 12,000원) |
+| 예약가능  | Available   | 좌석이 비어있어 예약할 수 있는 상태                                        |
+| 예약됨   | Reserved    | 좌석이 이미 예약되어 더 이상 예약할 수 없는 상태                                |
 
 ### 예매
 
@@ -32,9 +46,9 @@
 | 예매       | Booking              | 영화 티켓을 미리 구매하여 좌석을 예약하는 행위 |
 | 예매 금액    | Booking Amount       | 선택한 좌석 가격의 총합              |
 | 할인 적용 금액 | Discounted Amount    | 예매 금액에 기본 할인이 적용된 금액       |
-| 포인트      | Points               | 예매 금액에서 차감 가능한 적립금         |
+| 포인트      | Point                | 예매 금액에서 차감 가능한 적립금         |
 | 결제 금액    | Payment Amount       | 할인 적용 금액에 포인트가 차감된 금액      |
-| 결제 수단    | Payment Method       | 결제하는 수단 (ex. 신용카드, 현금)     |
+| 결제 수단    | Payment Method       | 결제하는 수단. (ex. 신용카드, 현금)    |
 | 최종 결제 금액 | Final Payment Amount | 결제 금액에 추가 할인이 적용된 실제 결제 금액 |
 
 ### 할인
@@ -61,16 +75,98 @@
 | 시간 조건   | Time Condition           | 상영 시간을 기반으로 할인 적용 여부를 결정하는 조건 |
 | 결제수단 조건 | Payment Method Condition | 결제 수단을 기반으로 할인 적용 여부를 결정하는 조건 |
 
-#### 할인 정책
+#### 할인 우선순위
 
-| 한글명     | 영문명               | 설명                                  |
-|---------|-------------------|-------------------------------------|
-| 할인 정책   | Discount Policy   | 특정 할인 종류와 계산법을 조건에 따라 적용하는 규칙       |
-| 할인 우선순위 | Discount Priority | 동일한 종류의 할인 정책이 동시에 적용되는 경우, 적용되는 순서 |
+| 한글명     | 영문명               | 설명                               |
+|---------|-------------------|----------------------------------|
+| 할인 우선순위 | Discount Priority | 동일한 종류의 할인이 동시에 적용되는 경우, 적용되는 순서 |
 
----
+## 모델링
 
-## 요구사항
+### 상영관
+
+#### 프로퍼티
+
+- `상영관(Theater)`는 `상영관 이름(Theater Name)`, `상영관 운영 시간(Theater Operating Hours)`, `상영관 운영 유형(Theater Operating Type)`을 갖는다.
+- `상영관 운영 시간(Theater Operating Hours)`은 아래 규칙으로 유효성 검증을 수행한다.
+    - `상영관 운영 유형(Theater Operating Type)`이 `하루 운영(Same-Day Operation)`인 경우: 시작 시각 < 종료 시각
+    - `상영관 운영 유형(Theater Operating Type)`이 `익일 운영(Cross-Day Operation)` 인 경우: 시작 시각 > 종료 시각
+
+### 영화
+
+#### 프로퍼티
+
+- `영화(Movie)`는 `영화 이름(Movie Name)`, `상영 기간(Screening Period)`, `상영 길이(Movie Runtime)`, `상영 일정(Screening Schedule)`을 갖는다.
+- `영화(Movie)`는 하나 이상의 `상영 일정(Screening Schedule)`을 갖는다.
+- `상영 일정(Screening Schedules)`은 `상영관(Theater)`, `상영 날짜(Screening Date)`, `시작 시각(Screening Start Time)`을 포함한다.
+- `상영 일정(Screening Schedules)`은 아래 규칙으로 유효성 검증을 수행한다.
+    - `상영 날짜(Screening Date)`는 `상영 기간(Screening Period)`에 포함되어야 한다.
+    - `시작 시각(Screening Start Time)`은 `상영 길이(Movie Runtime)`를 더한 값이 `상영관 운영 시간(Theater Operating Hours)`에 포함되어야 한다.
+- `상영 일정(Screening Schedules)`은 하나 이상의 `좌석(Seat)`을 갖는다.
+
+### 좌석
+
+#### 프로퍼티
+
+- `좌석(Seat)`는 `좌석 번호(Seat Number)`, `좌석 등급(Seat Grade)`, `좌석 가격(Seat Price)`, `좌석 상태(Seat Status)`을 갖는다.
+- `좌석 등급(Seat Grade)`은 S,A,B로 나뉜다.
+- `좌석 가격(Seat Price)`은 `좌석 등급(Seat Grade)`에 따라 아래와 같이 정의된다.
+    - S석은 18,000원
+    - A석은 15,000원
+    - B석은 12,000원
+- `좌석 상태(Seat Status)`는 `예약가능(Available)`과 `예약됨(Reserved)`상태가 있다.
+- `좌석(Seat)`은 하나의 `상영 일정(Screening Schedules)`을 갖는다.
+
+#### 행위
+
+- `사용자(User)`는 `예약가능(Available)` 상태를 가진 `좌석(Seat)`을 선택할 수 있다.
+- `사용자(User)`가 `좌석(Seat)`을 선택하면 좌석상태는 `예약됨(Reserved)`으로 변경된다.
+- `사용자(User)`는 `좌석(Seat)`을 여러개 선택할 수 있다.
+
+### 사용자
+
+#### 프로퍼티
+
+- `사용자(User)`는 `이메일(Email)`과 `포인트(Point)`를 갖는다.
+- `포인트(Point)`는 0원 이하가 될 수 없다.
+
+#### 행위
+
+- `사용자(User)`가 `포인트(Point)`를 예매에 사용하면 `포인트(Point)`가 차감된다.
+
+### 예매
+
+#### 프로퍼티
+
+- `예매(Booking)`은 `예매 금액(Booking Amount)`, `할인 적용 금액(Discounted Amount)`, `결제 금액(Payment Amount)`, `결제 수단(Payment Method)`, `최종 결제 금액(Final Payment Amount)`을
+  갖는다.
+- `예매 금액(Booking Amount)`은 사용자가 선택한 `좌석 가격(Seat Price)`의 총합이다.
+- `할인 적용 금액(Discounted Amount)`은 `예매 금액(Booking Amount)`에서 `기본 할인(Basic Discount)`이 적용된 금액이다.
+- `결제 금액(Payment Amount)`은 사용자가 가진 `포인트(Point)`를 차감한 금액이다.
+- `결제 수단(Payment Method)`은 `신용카드(Credit)`와 `현금(Cash)`을 갖는다.
+- `최종 결제 금액(Payment Amount)`은 `결제 금액(Payment Amount)`에 `추가 할인(Additional Discount)`이 적용된 실제 결제 금액이다.
+
+#### 행위
+
+- `사용자(User)`가 `좌석(Seat)`선택을 완료하면 `예매(Booking)`가 생성되면서 `예매 금액(Booking Amount)`과 `할인 적용 금액(Discounted Amount)`이 초기화된다.
+- `사용자(User)`가 `포인트(Point)`를 적용 유무를 결정하면 `결제 금액(Payment Amount)`이 생성된다.
+- `사용자(User)`가 `결제 수단(Payment Method)`을 결정하면 `최종 결제 금액(Payment Amount)`이 생성된다.
+
+### 할인
+
+#### 프로퍼티
+
+- `할인(Discount)`은 `할인 종류(Discount Type)`, `할인 계산법(Discount Calculation)`, `할인 조건(Discount Condition)`, `할인 우선순위(Discount Priority)`를 갖는다.
+- `할인 종류(Discount Type)` 는 `기본 할인(Basic Discount)`과 `추가 할인(Additional Discount)`을 갖는다
+- `할인 계산법(Discount Calculation)`은 `비율 할인 계산법(Percentage Discount Calculation Method)`과 `정액 할인 계산법(Fixed Amount Discount Calculation Method)`을 갖는다.
+- `할인 조건(Discount Condition)`은 `날짜 조건(Date Condition)`, `시간 조건(Time Condition)`, `결제수단 조건(Payment Method Condition)`을 갖는다.
+
+#### 행위
+
+- `할인(Disount)`은 `할인 조건(Discount Condition)`이 적용될 수 있는지 유효성을 검사한다.
+- 만약 동일한 `할인 종류(Discount Type)`의 `할인(Disount)`이 동시에 적용된다면 `할인 우선순위(Discount Priority)`에 따라 순서대로 적용된다.
+
+## 기존 요구사항
 
 - [ ] 하나의 영화는 주어진 상영 가능 기간에 하루에도 여러 차례 상영될 수 있다.
 - [ ] 상영 시간은 영화의 상영 길이와 상영관 운영 시간에 따라 정해진다.
